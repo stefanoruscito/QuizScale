@@ -18,11 +18,11 @@ const degree = scaleDegrees[randomDegreeIndex];
 // Ensure the question is displayed when the page loads
 window.addEventListener('DOMContentLoaded', () => {
     const questionElement = document.getElementById('question');
-    questionElement.textContent = `What is the note of degree ${degree} in the ${randomScale} scale?`;
+    questionElement.innerHTML = `What is the note of degree <strong>${degree}</strong> in the <strong>${randomScale}</strong> scale?`;
 });
 
 // Handle answer submission
-document.getElementById('submit-answer').addEventListener('click', function() {
+function checkAnswer() {
     const userAnswer = document.getElementById('user-answer').value.trim();
     const feedback = document.getElementById('feedback');
 
@@ -34,6 +34,16 @@ document.getElementById('submit-answer').addEventListener('click', function() {
 
     document.getElementById('result').classList.remove('hidden');
     document.getElementById('quiz-container').classList.add('hidden');
+}
+
+document.getElementById('submit-answer').addEventListener('click', checkAnswer);
+
+// Allow pressing "Enter" to submit the answer
+document.getElementById('user-answer').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        checkAnswer();
+    }
 });
 
 // Show the full scale
