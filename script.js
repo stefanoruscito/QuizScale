@@ -10,10 +10,15 @@ const scaleData = scales[randomScale];
 const scaleNotes = scaleData.notes;
 const scaleDegrees = scaleData.degrees;
 
+// Randomly extract a degree from the scale
+const randomDegreeIndex = getRandomInt(scaleNotes.length);
+const correctNote = scaleNotes[randomDegreeIndex];
+const degree = scaleDegrees[randomDegreeIndex];
+
 // Ensure the question is displayed when the page loads
 window.addEventListener('DOMContentLoaded', () => {
     const questionElement = document.getElementById('question');
-    questionElement.textContent = `What is the note of degree ${scaleDegrees[randomDegreeIndex]} in the ${randomScale} scale?`;
+    questionElement.textContent = `What is the note of degree ${degree} in the ${randomScale} scale?`;
 });
 
 // Handle answer submission
@@ -33,4 +38,26 @@ document.getElementById('submit-answer').addEventListener('click', function() {
 
 // Show the full scale
 document.getElementById('show-scale').addEventListener('click', function() {
-    const notesRow = document.get
+    const notesRow = document.getElementById('notes-row');
+    const degreesRow = document.getElementById('degrees-row');
+
+    // Clear previous content
+    notesRow.innerHTML = '';
+    degreesRow.innerHTML = '';
+
+    // Populate the rows with data
+    scaleNotes.forEach(note => {
+        const noteCell = document.createElement('th');
+        noteCell.textContent = note;
+        notesRow.appendChild(noteCell);
+    });
+
+    scaleDegrees.forEach(degree => {
+        const degreeCell = document.createElement('td');
+        degreeCell.textContent = degree;
+        degreesRow.appendChild(degreeCell);
+    });
+
+    document.getElementById('full-scale').classList.remove('hidden');
+    document.getElementById('result').classList.add('hidden');
+});
