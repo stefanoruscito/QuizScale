@@ -10,15 +10,10 @@ const scaleData = scales[randomScale];
 const scaleNotes = scaleData.notes;
 const scaleDegrees = scaleData.degrees;
 
-// Randomly extract a degree from the scale
-const randomDegreeIndex = getRandomInt(scaleNotes.length);
-const correctNote = scaleNotes[randomDegreeIndex];
-const degree = scaleDegrees[randomDegreeIndex];
-
 // Ensure the question is displayed when the page loads
-window.addEventListener('DOMContentLoaded', (event) => {
+window.addEventListener('DOMContentLoaded', () => {
     const questionElement = document.getElementById('question');
-    questionElement.textContent = `What is the note of degree ${degree} in the ${randomScale} scale?`;
+    questionElement.textContent = `What is the note of degree ${scaleDegrees[randomDegreeIndex]} in the ${randomScale} scale?`;
 });
 
 // Handle answer submission
@@ -38,8 +33,4 @@ document.getElementById('submit-answer').addEventListener('click', function() {
 
 // Show the full scale
 document.getElementById('show-scale').addEventListener('click', function() {
-    const scaleDisplay = scaleNotes.map((note, index) => `${scaleDegrees[index]}: ${note}`).join(', ');
-    document.getElementById('scale-display').textContent = `${randomScale}: ${scaleDisplay}`;
-    document.getElementById('full-scale').classList.remove('hidden');
-    document.getElementById('result').classList.add('hidden');
-});
+    const notesRow = document.get
