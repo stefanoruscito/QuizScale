@@ -16,7 +16,7 @@ const correctNote = scaleNotes[randomDegreeIndex];
 const degree = scaleDegrees[randomDegreeIndex];
 
 // Display the question
-document.getElementById('question').textContent = `What is the ${degree} note of the ${randomScale} scale?`;
+document.getElementById('question').textContent = `What is the note of degree ${degree} in the ${randomScale} scale?`;
 
 // Handle answer submission
 document.getElementById('submit-answer').addEventListener('click', function() {
@@ -35,5 +35,4 @@ document.getElementById('submit-answer').addEventListener('click', function() {
 
 // Show the full scale
 document.getElementById('show-scale').addEventListener('click', function() {
-    const scaleDisplay = scaleNotes.map((note, index) => `${scaleDegrees[index]}: ${note}`).join(', ');
-    document.getElementById('scale-display').text
+    const scaleDisplay = scaleNotes.map((note, index) => `${scale
