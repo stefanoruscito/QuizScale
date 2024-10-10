@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Scales Quiz</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Major Scales Quiz</h1>
+        <div id="quiz-container">
+            <p id="question"></p>
+            <input type="text" id="user-answer" placeholder="Enter your answer">
+            <button id="submit-answer">Submit</button>
+        </div>
+        <div id="result" class="hidden">
+            <p id="feedback"></p>
+            <button id="show-scale">Show Full Scale</button>
+        </div>
+        <div id="full-scale" class="hidden">
+            <h2>Extracted Scale:</h2>
+            <p id="scale-display"></p>
+            <button onclick="location.reload()">Restart</button>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
